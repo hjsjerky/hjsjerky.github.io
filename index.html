@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>H&J's Beef Jerky - Fresh Smoked Beef Jerky</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23D2691E" width="1200" height="600"/><pattern id="wood" patternUnits="userSpaceOnUse" width="100" height="20"><rect fill="%238B4513" width="100" height="20"/><rect fill="%23A0522D" width="100" height="2"/></pattern><rect fill="url(%23wood)" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #FF6B35;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255,107,53,0.3);
+        }
+
+        .cta-button:hover {
+            background: #E55A2B;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,107,53,0.4);
+        }
+
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #8B4513;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .process-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .process-card h3 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .process-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-header {
+            background: #8B4513;
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .event-body {
+            padding: 1.5rem;
+        }
+
+        .event-date {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-location {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .contact-section {
+            background: #8B4513;
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .contact-section h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            text-align: center;
+        }
+
+        .contact-item h3 {
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">H&J's Beef Jerky</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#process">Our Process</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Fresh Smoked Beef Jerky</h1>
+            <p>From our local butcher to our signature smoker - experience the freshest, most flavorful beef jerky you've ever tasted. Hand-crafted with passion and smoked to perfection.</p>
+            <a href="#events" class="cta-button">Find Us at Events</a>
+        </section>
+
+        <section id="process" class="section">
+            <h2>Our Fresh Process</h2>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-icon">🥩</div>
+                    <h3>Local Butcher Selection</h3>
+                    <p>We start with the finest cuts of beef from our trusted local butcher. Every piece is hand-selected for quality and freshness, ensuring only the best makes it to your plate.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon">🧂</div>
+                    <h3>Marination Process </h3>
+                    <p>Our secret blend of spices and marinades is applied with care. Each piece is coated evenly and left to absorb our signature flavors for the perfect taste profile.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon">🔥</div>
+                    <h3>Traditional Smoking</h3>
+                    <p>Using our Traeger smoker, we smoke each batch to perfection. The process ensures tender, flavorful jerky with that authentic smoky taste.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-icon">📦</div>
+                    <h3>Fresh Packaging</h3>
+                    <p>Immediately after smoking, we package our jerky to lock in freshness. Our airtight packaging preserves the flavor and ensures you get the freshest product possible.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="section">
+            <h2>Upcoming Events</h2>
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">Come find us at these local events and taste our fresh beef jerky!</p>
+            
+            <div class="events-container">
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date"> </div>
+                        <h3>Downtown Farmers Market</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-location">📍</div>
+                        <p>.</p>
+                        <strong>Special:</strong> Buy 3 Get 1 free on all flavors!
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">.</div>
+                        <h3>Food Truck Friday</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-location">📍</div>
+                        <p></p>
+                        <strong>Special:</strong> Free samples aswell!
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">.</div>
+                        <h3>Super Bowl Sunday Market</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-location">📍</div>
+                        <p>.</p>
+                        <strong>Special:</strong> 3 bags for $25!
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-header">
+                        <div class="event-date">.</div>
+                        <h3>Valentine's Market</h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="event-location">📍 </div>
+                        <p>.</p>
+                        <strong>Special:</strong> !
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Get In Touch</h2>
+            <p>Have questions about our jerky or want to book us for a private event?</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <p>zawistowiskij@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📱 Phone</h3>
+                    <p>(845) 466-0026</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>Violet Ave <br>Hyde Park, NY</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 H&J's Beef Jerky. All rights reserved. | Fresh smoked daily with passion!</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add some interactive effects
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.process-card, .event-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize animations
+        document.querySelectorAll('.process-card, .event-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+    </script>
+</body>
+</html>
